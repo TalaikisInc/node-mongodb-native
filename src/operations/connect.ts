@@ -175,13 +175,6 @@ function resolveTLSOptions(options: MongoClientOptions) {
   if (!options.tls) {
     return;
   }
-
-  const keyFileOptionNames = ['sslCA', 'sslKey', 'sslCert'] as const;
-  for (const optionName of keyFileOptionNames) {
-    if (options[optionName]) {
-      options[optionName] = fs.readFileSync(options[optionName]);
-    }
-  }
 }
 
 export function connect(
