@@ -23,9 +23,6 @@ class ScramSHA extends AuthProvider {
     if (!credentials) {
       return callback(new MongoError('AuthContext must provide credentials.'));
     }
-    if (cryptoMethod === 'sha256' && saslprep == null) {
-      console.warn('Warning: no saslprep library specified. Passwords will not be sanitized');
-    }
 
     crypto.randomBytes(24, (err, nonce) => {
       if (err) {
@@ -142,7 +139,7 @@ function continueScramConversation(
 
   let processedPassword;
   if (cryptoMethod === 'sha256') {
-    processedPassword = 'kModuleError' in saslprep ? password : saslprep(password);
+    processedPassword = password
   } else {
     try {
       processedPassword = passwordDigest(username, password);
