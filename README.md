@@ -6,6 +6,12 @@
 
 # Description
 
+This fork fixes the following official driver nonsense:
+
+* event loop blocking readFileSync for TLS certificates
+* removes saslprep that does not work for custom built packages for AWS Lambda
+* ... ?
+
 The official [MongoDB](https://www.mongodb.com/) driver for Node.js.
 
 **NOTE: v3.x was recently released with breaking API changes. You can find a list of changes [here](CHANGES_3.0.0.md).**
