@@ -38,17 +38,6 @@ try {
   Snappy = require('snappy');
 } catch {} // eslint-disable-line
 
-export let saslprep: typeof import('saslprep') = makeErrorModule(
-  new MongoError(
-    'Optional module `saslprep` not found.' +
-      ' Please install it to enable Stringprep Profile for User Names and Passwords'
-  )
-);
-
-try {
-  saslprep = require('saslprep');
-} catch {} // eslint-disable-line
-
 export let aws4: typeof import('aws4') = makeErrorModule(
   new MongoError('Optional module `aws4` not found. Please install it to enable AWS authentication')
 );
