@@ -175,6 +175,8 @@ function resolveTLSOptions(options: MongoClientOptions) {
   if (!options.tls) {
     return;
   }
+
+  return options;
 }
 
 export function connect(
